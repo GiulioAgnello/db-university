@@ -52,17 +52,12 @@ WHERE `level` = "magistrale"
 QUESITO 7
 
 ```sql
-SELECT *
-FROM university.students
-WHERE
-YEAR(`date_of_birth`) = "1990"
+SELECT count(id) FROM university.departments;
 ```
 
 QUESITO 8
 
 ```sql
-SELECT *
-FROM university.students
-WHERE
-YEAR(`date_of_birth`) = "1990"
+SELECT COUNT(*) FROM university.teachers
+WHERE `phone` IS NULL
 ```
