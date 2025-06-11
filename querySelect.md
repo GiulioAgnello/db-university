@@ -34,19 +34,19 @@ AND `year` = "1"
 QUESITO 5
 
 ```sql
-SELECT *
-FROM university.students
+SELECT * FROM university.exams
 WHERE
-YEAR(`date_of_birth`) = "1990"
+`date` = "2020-06-20"
+AND
+`hour` > "14:00:00"
+
 ```
 
 QUESITO 6
 
 ```sql
-SELECT *
-FROM university.students
-WHERE
-YEAR(`date_of_birth`) = "1990"
+SELECT * FROM university.degrees
+WHERE `level` = "magistrale"
 ```
 
 QUESITO 7
