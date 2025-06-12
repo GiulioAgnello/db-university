@@ -1,30 +1,38 @@
 QUESITO 1
 
 ```sql
-SELECT count(id) FROM university.students
-WHERE year(`enrolment_date`) = "2019"
+SELECT count(id), YEAR`enrolment_date` FROM `students`
+GROUP BY YEAR(`enrolment_date`)
 
-SELECT count(id) FROM university.students
-WHERE year(`enrolment_date`) = "2020"
+CORRETTO DOPO REVISIONE
 ```
 
 QUESITO 2
 
 ```sql
-SELECT count(*) FROM university.teachers
-WHERE `office_address` LIKE "Borgo Elga%"
+SELECT count(`id`), `office_address`
+FROM `university.teachers`
+GROUP BY `office_address`
+
+CORRETTO DOPO REVISIONE
 ```
 
 QUESITO 3
 
 ```sql
-SELECT AVG(vote) FROM university.exam_student
-WHERE `exam_id` = 1
+SELECT AVG(`vote`), `exam_id`
+FROM `university.exam_student`
+GROUP BY `exam_id`
+
+CORRETTO DOPO REVISIONE
 ```
 
 QUESITO 4
 
 ```sql
-SELECT COUNT(*) FROM university.degrees
-WHERE `name` LIKE "%biologia%"
+SELECT COUNT(`id`), `department_id`
+FROM `university.degrees`
+GROUP BY `department_id`
+
+CORRETTO DOPO REVISIONE
 ```
