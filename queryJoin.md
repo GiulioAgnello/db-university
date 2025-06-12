@@ -54,30 +54,36 @@ ORDER BY `surname` ASC, `students`.`name` ASC
 QUESITO 5
 
 ```sql
-SELECT * FROM university.exams
-WHERE
-`date` = "2020-06-20"
-AND
-`hour` > "14:00:00"
+SELECT * FROM `degrees`
+JOIN `courses`
+ON `degrees`.`id` = `degree_id`
+JOIN `course_teacher`
+ON `courses`.`id` = `course_id`
+JOIN `teachers`
+ON `teacher_id` = `teachers`.`id`
 
 ```
 
 QUESITO 6
 
 ```sql
-SELECT * FROM university.degrees
-WHERE `level` = "magistrale"
+SELECT
+`teachers`.*,
+`departments`.*
+FROM `departments`
+JOIN `degrees`
+ON `departments`.`id` = `department_id`
+JOIN `courses`
+ON `degrees`.`id` = `degree_id`
+JOIN `course_teacher`
+ON `courses`.`id` = `course_id`
+JOIN `teachers`
+ON `teacher_id` = `teachers`.`id`
+WHERE `departments`.`name` = "dipartimento di matematica"
 ```
 
 QUESITO 7
 
 ```sql
 SELECT count(id) FROM university.departments;
-```
-
-QUESITO 8
-
-```sql
-SELECT COUNT(*) FROM university.teachers
-WHERE `phone` IS NULL
 ```
