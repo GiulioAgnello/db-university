@@ -85,5 +85,17 @@ WHERE `departments`.`name` = "dipartimento di matematica"
 QUESITO 7
 
 ```sql
-SELECT count(id) FROM university.departments;
+SELECT
+`students`.`id`,
+`students`.`name`,
+`students`.`surname`,
+`exam_student`.`exam_id`,
+MAX(`exam_student`.`vote`) `max_vote`
+
+FROM `students`
+JOIN `exam_student`
+ON `students`.`id` = `student_id`
+JOIN `exams`
+ON `exam_id` = `exams`.`id`
+GROUP BY `exam_student`.`exam_id`, `exam_student`.`student_id`,`exam_student`.`vote`
 ```
